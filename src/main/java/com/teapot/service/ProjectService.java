@@ -3,6 +3,7 @@ package com.teapot.service;
 import com.teapot.dto.ProjectDTO;
 import com.teapot.entity.Project;
 import com.teapot.entity.User;
+import com.teapot.exception.TicketingProjectException;
 
 import java.util.List;
 
@@ -10,13 +11,16 @@ public interface ProjectService {
 
     ProjectDTO getByProjectCode(String code);
     List<ProjectDTO> listAllProjects();
-    Project save(ProjectDTO dto);
-    void update(ProjectDTO dto);
-    void delete(String code);
 
-    void complete(String projectCode);
+    ProjectDTO save(ProjectDTO dto) throws TicketingProjectException;
 
-    List<ProjectDTO> listAllProjectDetails();
+    ProjectDTO update(ProjectDTO dto) throws TicketingProjectException;
+
+    void delete(String code) throws TicketingProjectException;
+
+    ProjectDTO complete(String projectCode) throws TicketingProjectException;
+
+    List<ProjectDTO> listAllProjectDetails() throws TicketingProjectException;
 
     List<ProjectDTO> readAllByAssignedManager(User user);
 

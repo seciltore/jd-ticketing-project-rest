@@ -17,8 +17,27 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: false
+    mail:
+      host: smtp.gmail.com
+      port: 587
+      properties:
+        mail:
+          transport:
+            protocol: smtp
+          smtp:
+            starttls:
+              enabled: true
+              required: true
+            auth: true
+            connectiontimeout: 5000
+            timeout: 5000
+            writetimeout: 5000
+      username: teapot.email@gmail.com
+      password: Teapot@2020
+
+
 security:
   jwt:
     secret-key: teapot
