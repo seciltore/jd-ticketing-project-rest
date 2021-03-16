@@ -14,8 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private SecurityFilter securityFilter;
+
 
     @Override
     @Bean
@@ -47,7 +46,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated();
 
-        http.addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
 
     }
